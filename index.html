@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pushpita & Vishnu | Wedding</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&family=Lora:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --pond-green: #7d9a8a;
+            --lily-pink: #f2c6de;
+            --soft-cream: #fdfaf6;
+            --dark-leaf: #3a5a40;
+        }
+
+        body { 
+            font-family: 'Lora', serif; 
+            text-align: center; 
+            margin: 0; 
+            background-color: var(--soft-cream);
+            color: var(--dark-leaf);
+        }
+
+        h1, h2 { font-family: 'Playfair Display', serif; font-weight: 400; }
+
+        /* Password Gate - No longer centered! */
+        #password-gate {
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%;
+            background: var(--soft-cream);
+            /* Removed flexbox centering */
+            display: block; 
+            padding: 40px; /* Awkwardly shoved into the corner */
+            text-align: left; /* Left align everything */
+            z-index: 1000;
+            color: black;
+        }
+
+        #password-gate h1 {
+            margin-top: 0;
+        }
+
+        .dev-joke {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.8rem;
+            color: black;
+        }
+
+        /* Make inputs look a bit more "default" for the gag */
+        #pw-input {
+            width: 250px;
+            display: block;
+        }
+
+        #pwd-button {
+            color: black;
+            background-color: white;
+            border-color: black;
+        }
+
+        /* Lily Pad Background elements */
+        .decoration {
+            font-size: 50px;
+            margin: 20px;
+        }
+
+        /* Main Content */
+        #main-content { display: none; padding-bottom: 50px; }
+
+        .hero-section {
+            padding: 100px 20px;
+            background: linear-gradient(rgba(253, 250, 246, 0.8), rgba(253, 250, 246, 0.8)), 
+                        url('https://images.unsplash.com/photo-1502011775432-d610336ec880?auto=format&fit=crop&q=80&w=1000'); /* Placeholder for Lotus/Water Lily imagery */
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        .container { max-width: 800px; margin: auto; padding: 20px; }
+
+        input, select, textarea, button { 
+            width: 90%; max-width: 400px; 
+            padding: 12px; margin: 10px 0; 
+            border-radius: 20px; border: 1px solid var(--pond-green);
+            font-family: 'Lora', serif;
+        }
+
+        button { 
+            background: var(--pond-green); color: white; 
+            border: none; cursor: pointer; transition: 0.3s;
+            font-size: 1.1rem;
+        }
+
+        button:hover { background: var(--dark-leaf); }
+
+        .hidden { display: none !important; }
+    </style>
+</head>
+<body>
+
+    <div id="password-gate">
+        <p>Password:</p>
+        <input type="password" id="pw-input">
+        <button id="pwd-button" onclick="checkPassword()">Login</button>
+        
+        <div class="dev-joke">
+            <p>Sorry - Vishnu doesn't know how to center a div</p>
+        </div>
+    </div>
+
+    <div id="main-content">
+        <div class="hero-section">
+            <div class="decoration">🪷</div>
+            <h1>Pushpita & Vishnu</h1>
+            <p style="font-style: italic; letter-spacing: 2px;">cordially invites you to their wedding</p>
+        </div>
+
+        <div class="container">
+            <h2>The Details</h2>
+            <p><strong>When:</strong> September 6, 2026</p>
+            <p><strong>Where:</strong> [Insert Venue Address]</p>
+            <p><strong>Dress Code:</strong> Traditional </p>
+
+            <hr style="border: 0; height: 1px; background: var(--pond-green); margin: 40px 0;">
+
+            <h2>Kindly RSVP</h2>
+            <p>Please respond by June 30th</p>
+            
+            <form id="rsvp-form">
+                <input type="text" name="name" placeholder="Full Name" required><br>
+                <input type="contact" name="contact" placeholder="Email Address or Phone" required><br>
+                <select name="attending">
+                    <option value="Yes">Joyfully Accepts</option>
+                    <option value="No">Regretfully Declines</option>
+                </select><br>
+                <input type="number" name="guests" placeholder="Total Number of Guests" min="1" max="10"><br>
+                <textarea name="message" rows="4" placeholder="Dietary requirements or a message for the couple"></textarea><br>
+                <button type="submit" id="submit-btn">Submit RSVP</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const WEDDING_PASSWORD = "test"; // Update your password here
+        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxCod5Xp9wi5NOGN7jRLyqBgOMhUQlqIfKvqkcRXnadGW3W4qZpirRmmWH93Knw5GsM6w/exec";
+
+        function checkPassword() {
+            const input = document.getElementById('pw-input').value;
+            if (input === WEDDING_PASSWORD) {
+                document.getElementById('password-gate').classList.add('hidden');
+                document.getElementById('main-content').style.display = 'block';
+                window.scrollTo(0,0);
+            } else {
+                document.getElementById('error-msg').innerText = "That's not quite right. Please try again.";
+            }
+        }
+
+        const form = document.getElementById('rsvp-form');
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            const btn = document.getElementById('submit-btn');
+            btn.disabled = true;
+            btn.innerText = "Sending...";
+
+            fetch(SCRIPT_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                body: new FormData(form)
+            })
+            .then(() => {
+                alert("Thank you! Your RSVP has been recorded.");
+                form.reset();
+                btn.disabled = false;
+                btn.innerText = "Submit RSVP";
+            })
+            .catch(error => {
+                console.error('Error!', error.message);
+                alert("Something went wrong. Please try again.");
+                btn.disabled = false;
+            });
+        });
+    </script>
+</body>
+</html>
+
