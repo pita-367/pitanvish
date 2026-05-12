@@ -5,6 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pushpita & Vishnu | Wedding</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&family=Lora:ital@0;1&display=swap" rel="stylesheet">
+     <!-- CSS FILES -->
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+        
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+     <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Playfair+Display&display=swap" rel="stylesheet">
+
+     <link href="css/bootstrap.min.css" rel="stylesheet">
+
+     <link href="css/bootstrap-icons.css" rel="stylesheet">
+
+     <link href="css/magnific-popup.css" rel="stylesheet">
+
+     <link href="css/tooplate-wedding-lite.css" rel="stylesheet">
     <style>
         :root {
             --pond-green: #7d9a8a;
@@ -100,6 +114,59 @@
 </head>
 <body>
 
+    <section class="preloader">
+        <div class="spinner">
+            <span class="spinner-rotate">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                </svg>
+            </span>    
+        </div>
+    </section>
+
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link click-scroll" href="#section_1">Homepage</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link click-scroll" href="#tofix">Our Story</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link click-scroll" href="#section_2">The Wedding</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link click-scroll" href="#section_4">People</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link click-scroll" href="#section_5">Gallery</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link click-scroll" href="#section_3">Rsvp</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link click-scroll" href="#section_7">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+    
+    <!-- TODO: uncomment -->
     <div id="password-gate">
         <p>Password:</p>
         <input type="password" id="pw-input">
@@ -111,35 +178,100 @@
     </div>
 
     <div id="main-content">
-        <div class="hero-section">
-            <div class="decoration">🪷</div>
-            <h1>Pushpita & Vishnu</h1>
-            <p style="font-style: italic; letter-spacing: 2px;">cordially invites you to their wedding</p>
+        <div class="hero-section" id="section_1">
+            <div class="container">
+                <div class="row">
+                    <div class="decoration">🪷</div>
+                    <div class="col-8"><img src="images/intro_pic.png" class="img-fluid" alt=""> </div>
+                    <div class="col-4"> <h1>Pushpita & Vishnu</h1><br> </div>
+                </div>
+                <div class="row"></div>
+                    <div class="col-12"> <p style="font-style: italic; letter-spacing: 6px;">cordially invites you to their wedding</p><br> </div>
+                    <a href="#section_3" class="custom-link custom-btn btn mx-auto">RSVP</a>
+                </div>
+            </div>
         </div>
 
-        <div class="container">
-            <h2>The Details</h2>
-            <p><strong>When:</strong> September 6, 2026</p>
-            <p><strong>Where:</strong> [Insert Venue Address]</p>
-            <p><strong>Dress Code:</strong> Traditional </p>
+        <section class="section-padding">
+            <div class="container" id="section_2">
+                <h2>The Wedding</h2>
+                <div class="row">
+                    <div class="col-4"><img src="images/template_image.png" class="img-fluid" alt=""></div>
+                    <div class="col-4"><img src="images/template_image.png" class="img-fluid" alt=""></div>
+                    <div class="col-4"><img src="images/template_image.png" class="img-fluid" alt=""></div>
+                </div>
+                <br>
+                <div class="row">
+                    <p class="col-4"><strong>When:</strong><br> September 6, 2026</p>
+                    <p class="col-4"><strong>Where:</strong><br> [Insert Venue Address]</p>
+                    <p class="col-4"><strong>Dress Code:</strong><br> Traditional </p>
+                </div>
+                
 
-            <hr style="border: 0; height: 1px; background: var(--pond-green); margin: 40px 0;">
+                <hr style="border: 0; height: 1px; background: var(--pond-green); margin: 40px 0;">
+            </div>
+        </section>
+        <section class="rsvp-section section-padding">
+            <div id="section_3">
+                <div class="container">
+                    <div class="row">
 
-            <h2>Kindly RSVP</h2>
-            <p>Please respond by June 30th</p>
-            
-            <form id="rsvp-form">
-                <input type="text" name="name" placeholder="Full Name" required><br>
-                <input type="contact" name="contact" placeholder="Email Address or Phone" required><br>
-                <select name="attending">
-                    <option value="Yes">Joyfully Accepts</option>
-                    <option value="No">Regretfully Declines</option>
-                </select><br>
-                <input type="number" name="guests" placeholder="Total Number of Guests" min="1" max="10"><br>
-                <textarea name="message" rows="4" placeholder="Dietary requirements or a message for the couple"></textarea><br>
-                <button type="submit" id="submit-btn">Submit RSVP</button>
-            </form>
-        </div>
+                        <div class="col-lg-8 col-12 mx-auto">
+                            <div class="rsvp-form-wrap">
+                                <div class="section-title-wrap mb-5">
+                                    <h2 class="section-title">RSVP</h2>
+
+                                    <div class="section-title-bottom">
+                                        <span class="section-title-line"></span>
+                                        <i class="section-title-icon bi-heart-fill"></i>
+                                        <span class="section-title-line"></span>
+                                    </div>
+                                </div>
+
+                                <h5 class="mb-4">Will you attend? <span class="text-muted">Please respond by June 30th</span></h5>
+
+                                <form id="rsvp-form" role="form">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <input type="text" name="name" id="name" class="form-control" placeholder="Full Name*" required="">
+                                        </div>
+
+                                        <div class="col-6"> 
+                                            <input type="email" name="email" id="email" pattern="[^ @]*@[^ @]*" class="form-control" placeholder="Email Address*" required="">
+                                        </div>
+                                    <div class="col-6"> 
+                                        <select name="attending">
+                                            <option value="Yes">Joyfully Accepts</option>
+                                            <option value="No">Regretfully Declines</option>
+                                        </select><br> 
+                                    </div>
+                                        
+                                        <div class="col-6"> 
+                                            <select name="guests" class="form-select" id="guests" aria-label="Guests">
+                                                <option selected>Number of Guests</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="col-12">
+                                            <textarea class="form-control" id="message" name="message" placeholder="Message (Optional)" rows="5"></textarea>
+                                        </div>
+
+                                        <div class="col-lg-3 col-5 mx-auto">
+                                            <button type="submit"  class="form-control custom-btn btn mt-4" id="submit-btn">Submit RSVP</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
 
     <script>
@@ -182,6 +314,16 @@
             });
         });
     </script>
+
+     <!-- JAVASCRIPT FILES -->
+     <script src="js/jquery.min.js"></script>
+     <script src="js/bootstrap.min.js"></script>
+     <script src="js/jquery.sticky.js"></script>
+     <script src="js/click-scroll.js"></script>
+     <script src="js/jquery.magnific-popup.min.js"></script>
+     <script src="js/magnific-popup-options.js"></script>
+     <script src="js/custom.js"></script>
+
 </body>
 </html>
 
